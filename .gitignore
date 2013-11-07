@@ -1,0 +1,7 @@
+/.bundle
+/.env
+/config/database.yml
+/coverage/
+/log/*.log
+/tmp
+/vendor/bundle
