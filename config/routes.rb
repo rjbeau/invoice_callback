@@ -2,6 +2,7 @@ InvoiceCallback::Application.routes.draw do
 
   root 'pages#blankpage'
   post "invoice_callback", to: 'pages#invoice_callback'
+  get "mytoken", to: 'pages#mytoken'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

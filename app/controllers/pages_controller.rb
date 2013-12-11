@@ -5,6 +5,11 @@ class PagesController < ApplicationController
     render text: params[:page].to_json
   end
 
+  def mytoken
+    render text: params.to_json
+  end
+
+
   def blankpage
     render text: ''
   end
