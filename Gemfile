@@ -5,6 +5,9 @@ ruby '2.1.0'
 gem 'rails', '4.0.3'
 gem 'puma'
 
+group :production do
+  gem "pg"
+end
 group :development, :test do
   gem 'sqlite3'
 end
