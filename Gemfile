@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.4'
 gem 'puma'
 
-group :production do
-  gem "pg"
-end
-group :development, :test do
-  gem 'sqlite3'
-end
+gem "pg"
+
+gem 'foundation-rails'
+gem 'colorize'
+
+gem 'haml'
+gem 'haml-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

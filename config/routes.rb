@@ -1,8 +1,11 @@
 InvoiceCallback::Application.routes.draw do
 
+  resources :callbks, path: :callbacks, except: :create
+  post  'callbacks', to: 'callbks#post_callback'
+
   root 'pages#blankpage'
-  post "invoice_callback", to: 'pages#invoice_callback'
   get "mytoken", to: 'pages#mytoken'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

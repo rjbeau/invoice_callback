@@ -1,0 +1,12 @@
+%div.row
+  %div{ class: 'small-1 large-1 column' }
+  %div{ class: 'small-2 large-2 columns' } Reference
+  %div{ class: 'small-7 large-7 columns' } Params
+  %div{ class: 'small-2 large-2 columns' } Time
+
+- @callbacks.each do |c|
+  %div.row
+    %div{ class: 'small-1 large-1 column' }= link_to 'View', callbk_path(id: c.id, reference: c.ref)
+    %div{ class: 'small-2 large-2 columns' }= c.ref
+    %div{ class: 'small-7 large-7 columns' }= c.contents
+    %div{ class: 'small-2 large-2 columns' }= time_ago_in_words(c.created_at)
