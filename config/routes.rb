@@ -2,6 +2,7 @@ InvoiceCallback::Application.routes.draw do
 
   resources :callbks, path: :callbacks, except: :create
   post  'callbacks', to: 'callbks#post_callback'
+  post  'redirect', to: 'callbks#redirect'
 
   root 'pages#blankpage'
   get "mytoken", to: 'pages#mytoken'

@@ -1,12 +1,28 @@
-%div.row
-  %div{ class: 'small-1 large-1 column' }
-  %div{ class: 'small-2 large-2 columns' } Reference
-  %div{ class: 'small-7 large-7 columns' } Params
-  %div{ class: 'small-2 large-2 columns' } Time
-
-- @callbacks.each do |c|
+- if @callbacks.count > 0
+  %br
   %div.row
-    %div{ class: 'small-1 large-1 column' }= link_to 'View', callbk_path(id: c.id, reference: c.ref)
-    %div{ class: 'small-2 large-2 columns' }= c.ref
-    %div{ class: 'small-7 large-7 columns' }= c.contents
-    %div{ class: 'small-2 large-2 columns' }= time_ago_in_words(c.created_at)
+    %div{ class: 'small-12 large-12 columns' }
+      %table
+        %theader
+          %tr
+            %th{ width: '10%' }
+            %th{ class: 'center', width: '80%' } Params
+            %th{ class: 'center', width: '10%' } Time Ago
+        %tbody
+          - @callbacks.each do |c|
+            %tr
+              %td= link_to 'View', callbk_path(id: c.id, reference: c.ref)
+              %td= c.contents
+              %td= time_ago_in_words(c.created_at)
+
+- else
+  %div.row
+    %div{ class: 'small-12 large-12 columns' }
+      %br
+      %h5 There are no callbacks associated with this reference
+  %div.row
+    = form_tag(controller: :callbks, action: :redirect) do
+      %div.row
+        %div.span1= text_field_tag :reference, nil, placeholder: "Enter 'reference' or 'user_defined_8' value"
+        %div.span3= submit_tag("View Callbacks")
+

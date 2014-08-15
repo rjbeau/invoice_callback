@@ -18,6 +18,10 @@ class CallbksController < ApplicationController
     head 204
   end
 
+  def redirect
+    redirect_to callbks_path(reference: params[:reference])
+  end
+
   private
 
   def get_ref

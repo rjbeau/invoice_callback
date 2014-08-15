@@ -1,8 +1,17 @@
 %div.row
-  %div{ class: 'small-2 large-2 columons' }= link_to 'Back', :back, class: 'button radius tiny'
+  %br
+  %div{ class: 'small-2 large-2 columns' }= link_to 'Back', :back, class: 'button radius tiny'
 
 %div.row
   %div
-    - @callback.contents.each do |key,value|
-      %div{ class: 'small-3 large-3 columns' }= key
-      %div{ class: 'small-9 large-9 columns' }= value
+    %div{ class: 'small-12 large-12 columns' }
+      %table
+        %theader
+          %tr
+            %th{ width: '15%' } Key
+            %th{ class: 'center', width: '85%' } Value
+        %tbody
+          - @callback.contents.each do |key,value|
+            %tr
+              %td= key
+              %td= value
