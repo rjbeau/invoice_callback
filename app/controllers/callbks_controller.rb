@@ -21,7 +21,11 @@ class CallbksController < ApplicationController
   private
 
   def get_ref
-    params[:user_defined_8]
+    if params[:payload][:user_defined_8].present?
+      params[:payload][:user_defined_8]
+    else
+      params[:reference]
+    end
   end
 
   def cleaned_params
