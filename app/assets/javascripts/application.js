@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require showdown
+//= require react
+//= require react_ujs
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

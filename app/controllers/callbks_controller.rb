@@ -3,6 +3,10 @@ class CallbksController < ApplicationController
 
   def index
     @callbacks = Callbk.where(ref: params[:reference]).order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.json { render json: @callbacks }
+    end
   end
 
   def show

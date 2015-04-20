@@ -1,7 +1,7 @@
 - if @callbacks.count > 0
   %br
   %div.row
-    %div{ class: 'small-12 large-12 columns' }
+    %div.columns.large-12.small-12
       %table
         %theader
           %tr
@@ -26,3 +26,7 @@
         %div.span1= text_field_tag :reference, nil, placeholder: "Enter 'reference' or 'user_defined_8' value"
         %div.span3= submit_tag("View Callbacks")
 
+
+%div.row
+  %div.columns.large-12.small-12
+    %div#recent_callbacks Loading list ...

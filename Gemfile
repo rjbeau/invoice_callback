@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem 'puma'
 
 gem "pg"
@@ -12,6 +12,9 @@ gem 'colorize'
 
 gem 'haml'
 gem 'haml-rails'
+
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'showdown-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0'
@@ -42,15 +45,3 @@ end
 group :production do
   gem 'rails_12factor'   # Heroku support
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
