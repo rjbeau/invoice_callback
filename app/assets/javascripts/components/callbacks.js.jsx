@@ -1,43 +1,22 @@
+// ugly parsing to get reference from url
+function reference() {
+  array = location.href.split('reference=');
+  if(array.length >= 2) {
+    return array[1];
+  }
+  else return '';
+}
+
 var Callback = React.createClass({
   render: function() {
     // console.log(this.props.children);
-    // console.log(this.props.children[1]);
     var linkItem = "/callbacks/" + this.props.id + "?reference=" + this.props.children[0];
     return (
       <tr>
         <td><a href={linkItem}>view</a></td>
-        <td>{this.props.children[1]}</td>
+        <td>{JSON.stringify(this.props.children[1], null, 2)}</td>
         <td>{this.props.children[2]}</td>
       </tr>
-    );
-  }
-});
-
-var CallbackBox = React.createClass({
-  loadCallbacksFromServer: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
-    this.loadCallbacksFromServer();
-    setInterval(this.loadCallbacksFromServer, this.props.pollInterval);
-  },
-  render: function() {
-    return (
-      <CallbackList data={this.state.data} />
-      // <tr className="callbackBox">
-      // </tr>
     );
   }
 });
@@ -73,7 +52,34 @@ var CallbackList = React.createClass({
   }
 });
 
+var CallbackBox = React.createClass({
+  loadCallbacksFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCallbacksFromServer();
+    setInterval(this.loadCallbacksFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      <CallbackList data={this.state.data} />
+    );
+  }
+});
+
 React.render(
-  <CallbackBox url="/callbacks.json?reference=bogus" pollInterval={5000} />,
+  <CallbackBox url={"/callbacks.json?reference=" + reference()} pollInterval="5000" />,
   document.getElementById('recent_callbacks')
 );

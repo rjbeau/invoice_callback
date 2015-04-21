@@ -9,9 +9,15 @@
         %theader
           %tr
             %th{ width: '15%' } Key
-            %th{ class: 'center', width: '85%' } Value
+            %th{ class: 'center', width: '85%' } Value/Subkeys
         %tbody
-          - @callback.contents.each do |key,value|
+          - @callback.contents.each do |key, value|
             %tr
               %td= key
-              %td= value
+              %td
+                - if value.is_a?(Hash)
+                  - value.each do |k, v|
+                    %div.columns.small-4.large-4= k
+                    %div.columns.small-8.large-8= v.nil? ? '.' : v
+                - else
+                  = value
