@@ -2,7 +2,7 @@ class CallbksController < ApplicationController
   skip_before_filter  :verify_authenticity_token, only: :post_callback
 
   def index
-    @callbacks = Callbk.where(ref: params[:reference]).order(created_at: :desc)
+    @callbacks = Callbk.where(ref: params[:reference]).order(created_at: :desc).limit(25)
     respond_to do |format|
       format.html
       format.json { render json: @callbacks }
@@ -29,11 +29,7 @@ class CallbksController < ApplicationController
   private
 
   def get_ref
-    if params[:payload][:user_defined_8].present?
-      params[:payload][:user_defined_8]
-    else
-      params[:reference]
-    end
+    params[:payload][:user_defined_8].present? ? params[:payload][:user_defined_8] : params[:reference]
   end
 
   def cleaned_params
