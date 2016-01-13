@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 gem 'puma'
 
 gem "pg"
@@ -13,7 +13,7 @@ gem 'colorize'
 gem 'haml'
 gem 'haml-rails'
 
-gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'react-rails', '~> 1.5.0'
 gem 'showdown-rails'
 
 # Use SCSS for stylesheets
@@ -35,7 +35,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.2.0'
+gem 'jbuilder', '~> 2.4.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
