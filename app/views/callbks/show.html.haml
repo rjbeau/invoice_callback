@@ -1,15 +1,15 @@
 %div.row
   %br
-  %div{ class: 'small-2 large-2 columns' }= link_to 'Back', :back, class: 'button radius tiny'
+  %div.columns.large-2.small-4= link_to 'Back', :back, class: 'button radius tiny'
 
 %div.row
   %div
-    %div{ class: 'small-12 large-12 columns' }
+    %div.columns.large-12.small-12
       %table
         %theader
           %tr
             %th{ width: '15%' } Key
-            %th{ class: 'center', width: '85%' } Value/Subkeys
+            %th.center{ width: '85%' } Value/Subkeys
         %tbody
           - @callback.contents.each do |key, value|
             %tr
