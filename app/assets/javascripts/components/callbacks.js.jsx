@@ -37,13 +37,13 @@ var CallbackList = React.createClass({
     });
     return (
       <table className="callbackList">
-        <theader>
+        <thead>
           <tr>
             <th width='10%'></th>
             <th className='center' width='80%'>Params</th>
             <th className='center' width='10%'>Time Ago</th>
           </tr>
-        </theader>
+        </thead>
         <tbody>
           {callbackNodes}
         </tbody>
@@ -79,7 +79,7 @@ var CallbackBox = React.createClass({
   }
 });
 
-React.render(
+ReactDOM.render(
   <CallbackBox url={"/callbacks.json?reference=" + reference()} pollInterval="5000" />,
   document.getElementById('recent_callbacks')
 );

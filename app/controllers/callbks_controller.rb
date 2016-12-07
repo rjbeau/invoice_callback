@@ -1,5 +1,5 @@
 class CallbksController < ApplicationController
-  skip_before_filter  :verify_authenticity_token, only: :post_callback
+  skip_before_action  :verify_authenticity_token, only: :post_callback
 
   def index
     @callbacks = Callbk.where(ref: params[:reference]).order(created_at: :desc).limit(25)
