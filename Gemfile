@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.0.1'
 gem 'puma'
 
 gem "pg"
@@ -13,7 +13,7 @@ gem 'colorize'
 gem 'haml'
 gem 'haml-rails'
 
-gem 'react-rails', '~> 1.5.0'
+gem 'react-rails'
 gem 'showdown-rails'
 
 # Use SCSS for stylesheets
