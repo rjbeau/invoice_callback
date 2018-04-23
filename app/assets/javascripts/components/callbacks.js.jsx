@@ -7,7 +7,7 @@ function reference() {
   else return '';
 }
 
-var Callback = React.createClass({
+var Callback = createReactClass({
   render: function() {
     // console.log(this.props.children);
     var linkItem = "/callbacks/" + this.props.id + "?reference=" + this.props.children[0];
@@ -21,7 +21,7 @@ var Callback = React.createClass({
   }
 });
 
-var CallbackList = React.createClass({
+var CallbackList = createReactClass({
   render: function() {
     var callbackNodes = this.props.data.map(function(callback, index) {
       return (
@@ -52,7 +52,7 @@ var CallbackList = React.createClass({
   }
 });
 
-var CallbackBox = React.createClass({
+var CallbackBox = createReactClass({
   loadCallbacksFromServer: function() {
     $.ajax({
       url: this.props.url,
