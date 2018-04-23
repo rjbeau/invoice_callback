@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby "~> #{`cat .ruby-version`.strip}"
 
 gem 'rails', '5.1.2'
 gem 'puma'
@@ -9,8 +9,7 @@ gem "pg"
 gem 'foundation-rails'
 gem 'colorize'
 
-gem 'haml'
-gem 'haml-rails'
+gem 'hamlit-rails'
 
 gem 'react-rails'
 gem 'showdown-rails'

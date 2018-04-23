@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require showdown
 //= require react
 //= require react_ujs
 //= require_tree .
