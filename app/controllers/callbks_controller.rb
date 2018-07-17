@@ -15,7 +15,7 @@ class CallbksController < ApplicationController
   end
 
   def post_callback
-    # render json: params and return  ## for dev testing
+    # render json: cleaned_params and return  ## for dev testing
     puts get_ref.to_s.green
     unless get_ref.blank?
       Callbk.create!(ref: get_ref, contents: cleaned_params)
@@ -34,7 +34,7 @@ class CallbksController < ApplicationController
   end
 
   def cleaned_params
-    @params = params.except!(:action, :controller, :callbk)
+    @params = params.except(:action, :controller, :callbk)
   end
 
 end
