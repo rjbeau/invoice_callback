@@ -15,7 +15,7 @@ class CallbksController < ApplicationController
   end
 
   def post_callback
-    render json: params and return
+    # render json: params and return  ## for dev testing
     puts get_ref.to_s.green
     unless get_ref.blank?
       Callbk.create!(ref: get_ref, contents: cleaned_params)
