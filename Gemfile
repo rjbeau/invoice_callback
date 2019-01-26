@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "~> #{`cat .ruby-version`.strip}"
 
-gem 'rails', '5.2.1'
+gem 'rails', '5.2.2'
 gem 'puma'
 
 gem "pg"
