@@ -1,5 +1,5 @@
 class CallbksController < ApplicationController
-  skip_before_action  :verify_authenticity_token, only: :post_callback
+  skip_before_action :verify_authenticity_token, only: :post_callback
 
   def index
     @callbacks = Callbk.where(ref: params[:reference]).order(created_at: :desc).limit(25)
@@ -15,12 +15,11 @@ class CallbksController < ApplicationController
   end
 
   def post_callback
-    # render json: cleaned_params and return  ## for dev testing
-    puts get_ref.to_s.green
-    unless get_ref.blank?
-      Callbk.create!(ref: get_ref, contents: cleaned_params)
-    end
+    # render json: cleaned_params and return ## for dev testing
+    Callbk.create!(ref: get_ref, contents: cleaned_params) unless get_ref.blank?
     head 204
+  rescue StandardError
+    head 422
   end
 
   def redirect
@@ -30,11 +29,14 @@ class CallbksController < ApplicationController
   private
 
   def get_ref
-    params[:payload][:user_defined_8].present? ? params[:payload][:user_defined_8] : params[:reference]
+    return params[:reference] if params[:reference].present?
+    return 'wyre' if params[:trigger]&.include?('paymentmethod')
+    return params[:payload][:user_defined_8] if params[:payload][:user_defined_8]&.present?
+
+    raise StandardError, 'Invalid params'
   end
 
   def cleaned_params
     @params = params.except(:action, :controller, :callbk)
   end
-
 end
