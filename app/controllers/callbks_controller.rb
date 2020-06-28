@@ -30,7 +30,7 @@ class CallbksController < ApplicationController
 
   def get_ref
     return params[:reference] if params[:reference].present?
-    return 'wyre' if params[:trigger]&.include?('paymentmethod')
+    return 'wyre' if params[:subscriptionID].present?
     return params[:payload][:user_defined_8] if params[:payload][:user_defined_8]&.present?
 
     raise StandardError, 'Invalid params'
